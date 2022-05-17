@@ -10,11 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Estudiantes;
+use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/registropost', function (Request $request) {
+    
+    Estudiantes::create($request->all());
+    return 1;
+});
 
 Route::resource('estudiantes', EstudiantesController::class);
 

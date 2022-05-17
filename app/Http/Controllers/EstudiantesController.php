@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Estudiantes;
 use Illuminate\Http\Request;
-
+use Mail;
 class EstudiantesController extends Controller
 {
     /**
@@ -48,6 +48,8 @@ class EstudiantesController extends Controller
         ]);
     
         Estudiantes::create($request->all());
+
+       
      
         return redirect()->route('estudiantes.index')
                         ->with('success','Creado con exito');
